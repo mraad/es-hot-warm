@@ -1,0 +1,59 @@
+version: '2'
+
+services:
+  es-master:
+      image: es-kopf
+      command: "elasticsearch -Des.cluster.name=thunder -Des.node.master=true -Des.node.data=false"
+      environment:
+         - ES_HEAP_SIZE=512m
+      ports:
+        - "9200:9200"
+        - "9300:9300"
+
+  hot1:
+      image: es-kopf
+      command: "elasticsearch -Des.node.box_type=hot -Des.cluster.name=thunder -Des.node.name=hot1 -Des.discovery.zen.ping.unicast.hosts=es-master -Des.node.master=false -Des.node.data=true"
+      links:
+        - es-master
+      environment:
+         - ES_HEAP_SIZE=512m
+
+  hot2:
+      image: es-kopf
+      command: "elasticsearch -Des.node.box_type=hot -Des.cluster.name=thunder -Des.node.name=hot2 -Des.discovery.zen.ping.unicast.hosts=es-master -Des.node.master=false -Des.node.data=true"
+      links:
+        - es-master
+      environment:
+         - ES_HEAP_SIZE=512m
+
+  hot3:
+      image: es-kopf
+      command: "elasticsearch -Des.node.box_type=hot -Des.cluster.name=thunder -Des.node.name=hot3 -Des.discovery.zen.ping.unicast.hosts=es-master -Des.node.master=false -Des.node.data=true"
+      links:
+        - es-master
+      environment:
+         - ES_HEAP_SIZE=512m
+
+  warm1:
+      image: es-kopf
+      command: "elasticsearch -Des.node.box_type=warm -Des.cluster.name=thunder -Des.node.name=warm1 -Des.discovery.zen.ping.unicast.hosts=es-master -Des.node.master=false -Des.node.data=true"
+      links:
+        - es-master
+      environment:
+         - ES_HEAP_SIZE=512m
+
+  warm2:
+      image: es-kopf
+      command: "elasticsearch -Des.node.box_type=warm -Des.cluster.name=thunder -Des.node.name=warm2 -Des.discovery.zen.ping.unicast.hosts=es-master -Des.node.master=false -Des.node.data=true"
+      links:
+        - es-master
+      environment:
+         - ES_HEAP_SIZE=512m
+
+  warm3:
+      image: es-kopf
+      command: "elasticsearch -Des.node.box_type=warm -Des.cluster.name=thunder -Des.node.name=warm3 -Des.discovery.zen.ping.unicast.hosts=es-master -Des.node.master=false -Des.node.data=true"
+      links:
+        - es-master
+      environment:
+         - ES_HEAP_SIZE=512m

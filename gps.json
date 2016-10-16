@@ -1,0 +1,24 @@
+{
+  "template": "gps-*",
+  "settings": {
+    "number_of_shards": 3,
+    "number_of_replicas": 2,
+    "index.refresh_interval": "-1",
+    "index.routing.allocation.require.box_type": "hot"
+  },
+  "mappings": {
+    "gps": {
+      "_all": {
+        "enabled": false
+      },
+      "properties": {
+        "loc": {
+          "type": "geo_point",
+          "fielddata": {
+            "precision": "100m"
+          }
+        }
+      }
+    }
+  }
+}
