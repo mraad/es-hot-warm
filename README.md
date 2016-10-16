@@ -15,7 +15,7 @@ The node type is defined using the property `es.node.box_type` when starting the
 docker-compose up
 ```
 
-![][ComposeUp]
+![](media/compose-up.png)
 
 Once the cluster is up, navigate to <http://localhost:9200/_plugin/kopf/#!/cluster> to see the cluster nodes, or:
 
@@ -43,7 +43,7 @@ Load 100 random gps documents:
 python gps.py
 ```
 
-![][Hot]
+![](media/hot.png)
 
 We can see in the above snapshot that the index and its replicas were all created in the `hot` nodes.
 
@@ -57,7 +57,7 @@ curl -XPUT localhost:9200/gps-*/_settings?pretty -d '
 '
 ```
 
-![][Warm]
+![](media/warm.png)
 
 And Voila !!! Pretty AWESOME.
 
@@ -72,7 +72,3 @@ Remove all the containers:
 ```
 docker rm $(docker ps -a -q)
 ```
-
-[ComposeUp]: media/compose-up.png width=768px
-[Hot]: media/hot.png width=512px
-[Warm]: media/warm.png width=512px
