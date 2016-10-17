@@ -1,6 +1,6 @@
 ## ES Hot Warm
 
-[This](https://www.elastic.co/blog/hot-warm-architecture) link discuss a multi temperature storage and search environment. This [Docker](https://docs.docker.com/) based project enables me to test and experience the movement of indices from `hot` to `warm`.
+[This](https://www.elastic.co/blog/hot-warm-architecture) link discusses a multi temperature storage and search environment using [Elasticsearch](https://www.elastic.co/). This [Docker](https://docs.docker.com/) based project enables me to test and experience the movement of indices from `hot` to `warm` storage.
 
 Build the image based on [Elasticseach:2.4](https://hub.docker.com/_/elasticsearch/) and the [Kopf](https://github.com/lmenezes/elasticsearch-kopf) plugin.
 
