@@ -59,7 +59,7 @@ curl -XPUT localhost:9200/gps-*/_settings?pretty -d '
 
 ![](media/warm.png)
 
-And Voila !!! Pretty AWESOME.
+And Voila. Pretty AWESOME !!!
 
 Stop the cluster:
 
